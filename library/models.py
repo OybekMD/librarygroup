@@ -40,6 +40,7 @@ class BookModel(models.Model):
     name = models.CharField(max_length=127, default='')
     author = models.ForeignKey(AuthorModel, on_delete=models.CASCADE,null=True)
     category = models.ForeignKey(BookCategoryModel, on_delete=models.SET_NULL, null=True)
+    years = models.DateField(default=datetime.now)
     page = models.PositiveSmallIntegerField(default=1)
     price = models.PositiveIntegerField(default=1)
     photo = models.ImageField(upload_to="photo/Book/%Y/%m/%d", blank=True)
